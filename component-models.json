@@ -224,7 +224,7 @@
         "label": "Content Fragment Picker",
         "valueType": "string",        
         "validation": {
-            "rootPath": "/content/dam/wknd-shared/en/adventures/ski-touring-mont-blanc"
+            "rootPath": "/content/dam/universal-editor-standard-site"
         }
       }
     ]
