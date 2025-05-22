@@ -222,10 +222,9 @@
         "component": "aem-content-fragment",
         "name": "picker",
         "label": "Content Fragment Picker",
-        "valueType": "string",
-        "variationName": "contentFragmentVariation",
+        "valueType": "string",        
         "validation": {
-            "rootPath": "/content"
+            "rootPath": "/content/dam/wknd-shared/en/adventures/ski-touring-mont-blanc"
         }
       }
     ]
