@@ -18,7 +18,7 @@ import {
  * @returns {HTMLElement} The root element of the fragment
  */
 export async function loadFragment(path) {
-  path = '/graphql/execute.json/universal-editor-standard-site/text';
+  
   console.log('path is ', path); 
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
