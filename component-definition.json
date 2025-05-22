@@ -113,6 +113,25 @@
           }
         },
         {
+          "title": "Content Fragments",
+          "id": "aem-content-fragment",
+          "plugins": {
+            "xwalk": {
+              "cf": {
+                "name": "Sample CF",
+                "cfModel": "EDS Xwalk Model",
+                "cfFolder": "samplecf",
+                "title": "Sample",
+                "description": "sample description",
+                "template": {
+                  "name": "Content Fragment",
+                  "model": "aem-content-fragment"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns",
           "id": "columns",
           "plugins": {
