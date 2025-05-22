@@ -21,8 +21,10 @@ export async function loadFragment(path) {
   console.log(path);
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
-    path = path.replace(/(\.plain)?\.html/, '');
-    const resp = await fetch(`${path}.plain.html`);
+    // path = path.replace(/(\.plain)?\.html/, '');
+    path = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
+    const resp = await fetch(`${path}`);
+    console.log(resp);
     if (resp.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
