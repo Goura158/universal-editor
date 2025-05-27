@@ -39,7 +39,7 @@ export async function loadFragment(path) {
 }
 
 export default async function decorate(block) {	
-	const content-fragment = await loadFragment(path);
+	const content-fragment = await loadFragment(`https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text`);
 	console.log(content-fragment);
 	//const path = link ? link.getAttribute('href') : block.textContent.trim();
 	//const cftext = document.createElement('div');
