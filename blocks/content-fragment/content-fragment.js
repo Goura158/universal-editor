@@ -20,7 +20,6 @@ import {
  */
 export async function loadFragment(path) {
   const aemauthorurl = getMetadata('authorurl') || '';
-  
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
     // path = path.replace(/(\.plain)?\.html/, '');
