@@ -23,8 +23,8 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
     // path = path.replace(/(\.plain)?\.html/, '');
-    const path1 = `${aemauthorurl}/graphql/execute.json/universal-editor-standard-site/text`;
-    const resp = await fetch(`${path1}`)
+    const cfapipath = `${aemauthorurl}/graphql/execute.json/universal-editor-standard-site/text`;
+    const resp = await fetch(`${cfapipath}`)
       .then((response) => response.json())
       .then((contentfragment) => {
         let textcf = '';
