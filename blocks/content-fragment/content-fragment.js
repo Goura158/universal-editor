@@ -4,12 +4,12 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import {
+/**import {
   decorateMain,
 } from '../../scripts/scripts.js';
-
+*/
 import {
-  loadSections, getMetadata,
+  getMetadata,
 } from '../../scripts/aem.js';
 
 /**
