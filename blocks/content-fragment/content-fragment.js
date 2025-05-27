@@ -9,7 +9,7 @@ import {
 } from '../../scripts/scripts.js';
 
 import {
-  loadSections,
+  loadSections, getMetadata
 } from '../../scripts/aem.js';
 
 /**
