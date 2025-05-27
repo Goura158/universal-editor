@@ -42,7 +42,7 @@ export default async function decorate(block) {
   block.innerHTML = '';
 
   block.innerHTML = `
-  <div class='banner-content block' data-aue-resource=${itemId} data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
+  <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
 		
         <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${
           resp?.title
