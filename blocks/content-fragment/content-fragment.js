@@ -38,12 +38,11 @@ export async function loadFragment(path) {
   return null;
 }
 
-export default async function decorate(block) {
-
-	const fragment = await loadFragment(path);
-	
-	const cftext = document.createElement('div');
-  while (fragment.title) cftext.append(fragment.title);
-
-  block.append(cftext);
+export default async function decorate(block) {	
+	const content-fragment = await loadFragment(path);
+	console.log(content-fragment);
+	//const path = link ? link.getAttribute('href') : block.textContent.trim();
+	//const cftext = document.createElement('div');
+  //while (fragment.title) cftext.append(fragment.title);
+  //block.append(cftext);
 }
