@@ -39,19 +39,11 @@ export async function loadFragment(path) {
 }
 
 export default async function decorate(block) {
-  block.innerHTML = '';
 
-  block.innerHTML = `
-  <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
-		
-        <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${
-          resp?.title
-        }</p>
-        
+	const fragment = await loadFragment(path);
+	
+	const cftext = document.createElement('div');
+  while (fragment.title) cftext.append(fragment.title);
 
-      </div>
-      <div class='banner-logo'>
-      </div>
-  </div>
-	`;
+  block.append(cftext);
 }
