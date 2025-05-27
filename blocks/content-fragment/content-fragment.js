@@ -20,8 +20,7 @@ import {
  */
 export async function loadFragment(path) {
   const aemauthorurl = getMetadata('authorurl') || '';
-  console.log(path);
-  console.log(aemauthorurl);
+  
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
     // path = path.replace(/(\.plain)?\.html/, '');
@@ -33,8 +32,7 @@ export async function loadFragment(path) {
         if (contentfragment.data) {
           textcf = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
         }
-        return textcf;
-        console.log(textcf);
+        return textcf;        
       });
     console.log(resp);
   }
