@@ -29,13 +29,13 @@ export async function loadFragment(path) {
     const resp = await fetch(`${path1}`)
       .then((response) => response.json())
       .then((contentfragment) => {
-        let offer = '';
+        let textcf = '';
         if (contentfragment.data) {
-          offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
+          textcf = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
         }
-        return offer;
+        return textcf;
       });
-    console.log(resp);
+    console.log(textcf);
   }
   return null;
 }
