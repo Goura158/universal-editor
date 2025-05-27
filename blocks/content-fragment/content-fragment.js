@@ -39,15 +39,19 @@ export async function loadFragment(path) {
 }
 
 export default async function decorate(block) {
-  const link = block.querySelector('a');
-  const path = link ? link.getAttribute('href') : block.textContent.trim();
-  const fragment = await loadFragment(path);
-  if (fragment) {
-    const fragmentSection = fragment.querySelector(':scope .section');
-    if (fragmentSection) {
-      block.classList.add(...fragmentSection.classList);
-      block.classList.remove('section');
-      block.replaceChildren(...fragmentSection.childNodes);
-    }
-  }
+  block.innerHTML = '';
+
+  block.innerHTML = `
+  <div class='banner-content block' data-aue-resource=${itemId} data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
+		
+        <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${
+          resp?.title
+        }</p>
+        
+
+      </div>
+      <div class='banner-logo'>
+      </div>
+  </div>
+	`;
 }
