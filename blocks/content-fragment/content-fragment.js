@@ -24,7 +24,7 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     // eslint-disable-next-line no-param-reassign
     // path = path.replace(/(\.plain)?\.html/, '');
-    const path1 = '${aemauthorurl};/graphql/execute.json/universal-editor-standard-site/text';
+    const path1 = '${aemauthorurl}/graphql/execute.json/universal-editor-standard-site/text';
     const resp = await fetch(`${path1}`);
     console.log(resp);
     if (resp.ok) {
