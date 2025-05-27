@@ -31,7 +31,8 @@ export async function loadFragment(path) {
         if (contentfragment.data) {
           textcf = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
         }
-        return textcf;});
+        return textcf;
+      });
     console.log(resp);
   }
   return null;
