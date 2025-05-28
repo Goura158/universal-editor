@@ -38,7 +38,7 @@ export async function loadFragment(path) {
   return null;
 }
 
-export default async function decorate(block) {	
+export default async function decorate(block) {
 	const graphqlpath = `https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text`;
 	const graphqlpathresult = await loadFragment(`graphqlpath`);
 	// console.log(graphqlpathresult);
