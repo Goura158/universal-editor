@@ -21,8 +21,8 @@ export default async function decorate(block) {
 	const aemauthorurl = getMetadata('authorurl') || '';
 	const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
 	const graphqlpath = `${aemauthorurl}${persistedquery}`;
-	const cfReq = await fetch(url, options)
-    .then((response) => response.json())
+		const cfReq = await fetch(graphqlpath)
+			.then((response) => response.json())
     .then((contentfragment) => {
       let offer = '';
       if (contentfragment.data) {
