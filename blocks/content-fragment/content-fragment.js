@@ -34,8 +34,7 @@ export default async function decorate(block) {
         offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
       }
       return offer;
-    });
-  
+    });  
   console.log(cfReq);
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
