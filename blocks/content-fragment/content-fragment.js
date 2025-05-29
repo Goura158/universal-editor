@@ -19,7 +19,7 @@ import {
  */
 export default async function decorate(block) {
   block.innerHTML = '';
-  const aemauthorurl = getMetadata('authorurl') || '';
+  const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
