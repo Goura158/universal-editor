@@ -22,6 +22,9 @@ export default async function decorate(block) {
   const aemauthorurl = getMetadata('authorurl') || '';
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
+  console.log('before content load');
+  console.log(graphqlpath);
+  console.log('graphql path load');
   // console.log(graphqlpath);
   const cfReq = await fetch(graphqlpath)
     .then((response) => response.json())
@@ -32,7 +35,7 @@ export default async function decorate(block) {
       }
       return offer;
     });
-  console.log('before content load');
+  
   console.log(cfReq);
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
