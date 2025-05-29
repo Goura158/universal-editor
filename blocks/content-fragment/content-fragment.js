@@ -26,8 +26,8 @@ export default async function decorate(block) {
     .then((response) => response.json())
     .then((contentfragment) => {
       let offer = '';
-        if (contentfragment.data) {
-        offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
+      if (contentfragment.data) {
+      offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
       }
       return offer;
     });
