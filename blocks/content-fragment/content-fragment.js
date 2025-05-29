@@ -37,7 +37,7 @@ export default async function decorate(block) {
   block.innerHTML = `
   <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
     <p>hi</p>
-  </div>
+  </div>`;
   // const path = link ? link.getAttribute('href') : block.textContent.trim();
   // const cftext = document.createElement('div');
   // while (cfReq.title) cftext.append(cfReq.title);
