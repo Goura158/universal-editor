@@ -22,7 +22,7 @@ export default async function decorate(block) {
   const aemauthorurl = getMetadata('authorurl') || '';
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
-  //console.log(graphqlpath);
+  // console.log(graphqlpath);
   const cfReq = await fetch(graphqlpath)
     .then((response) => response.json())
     .then((contentfragment) => {
