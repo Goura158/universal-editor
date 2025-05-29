@@ -32,7 +32,7 @@ export default async function decorate(block) {
       }
       return offer;
     });
-  console.log(cfReq.title);
+  console.log(cfReq);
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
   <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
