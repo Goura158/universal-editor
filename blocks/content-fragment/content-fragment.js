@@ -19,10 +19,7 @@ export default async function decorate(block) {
   const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
-  const graphqlpath = `${aemauthorurl}${persistedquery}`;
-  console.log('before content load');
-  console.log(graphqlpath);
-  console.log('graphql path load');
+  const graphqlpath = `${aemauthorurl}${persistedquery}`;  
   // console.log(graphqlpath);
   const cfReq = await fetch(graphqlpath)
     .then((response) => response.json())
@@ -30,6 +27,7 @@ export default async function decorate(block) {
       let offer = '';
       if (contentfragment.data) {
         offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
+        console.log('offer', offer);
       }
       return offer;
     });
