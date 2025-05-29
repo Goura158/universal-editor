@@ -18,14 +18,15 @@ import {
  * @param {Element} block
  */
 export default async function decorate(block) {
+  block.innerHTML = '';
   const aemauthorurl = getMetadata('authorurl') || '';
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
   const cfReq = await fetch(graphqlpath)
-			.then((response) => response.json())
+    .then((response) => response.json())
     .then((contentfragment) => {
       let offer = '';
-      if (contentfragment.data) {
+        if (contentfragment.data) {
         offer = contentfragment.data[Object.keys(contentfragment.data)[0]].item;
       }
       return offer;
