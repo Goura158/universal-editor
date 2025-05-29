@@ -9,9 +9,6 @@
 * decorateMain,
 * } from '../../scripts/scripts.js';
 */
-import {
-  getMetadata,
-} from '../../scripts/aem.js';
 
 /**
  *
