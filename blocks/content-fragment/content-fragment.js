@@ -22,7 +22,7 @@ export default async function decorate(block) {
   const aemauthorurl = getMetadata('authorurl') || '';
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
-  console.log(graphqlpath);
+  //console.log(graphqlpath);
   const cfReq = await fetch(graphqlpath)
     .then((response) => response.json())
     .then((contentfragment) => {
@@ -32,11 +32,11 @@ export default async function decorate(block) {
       }
       return offer;
     });
-  console.log(cfReq);
+  console.log(cfReq.title);
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
   <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
-    <p>${cfReq.title}</p>
+    <p>hi</p>
   </div>
   // const path = link ? link.getAttribute('href') : block.textContent.trim();
   // const cftext = document.createElement('div');
