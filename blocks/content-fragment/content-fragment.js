@@ -33,6 +33,13 @@ export default async function decorate(block) {
       return offer;
     });
   console.log(cfReq);
+  block.setAttribute('data-aue-type', 'container');
+  block.innerHTML = `
+  <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
+    <p data-aue-prop="title" data-aue-label="title" data-aue-type="text" class='pretitle'>${
+      cfReq?.title
+    }</p>
+  </div>
   // const path = link ? link.getAttribute('href') : block.textContent.trim();
   // const cftext = document.createElement('div');
   // while (cfReq.title) cftext.append(cfReq.title);
