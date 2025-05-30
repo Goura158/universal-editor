@@ -26,8 +26,8 @@ export default async function decorate(block) {
     .then((contentfragment) => {
       let offer = '';
       if (contentfragment.data) {
-        console.log('CF data ', contentfragment.data.textList.items[0].title);
-        offer = contentfragment.data.textList.items[0].title;
+        console.log('CF data ', contentfragment.data.textList.items[0]);
+        offer = contentfragment.data.textList.items[0];
         // const headline = offer.data.textList.items[0].title;
         // console.log('offer ', headline);
       }
@@ -37,7 +37,7 @@ export default async function decorate(block) {
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
   <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
-    <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='pretitle'>${cfReq}</p>
+    <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='pretitle'>${cfReq}.title</p>
   </div>`;
   // const path = link ? link.getAttribute('href') : block.textContent.trim();
   // const cftext = document.createElement('div');
