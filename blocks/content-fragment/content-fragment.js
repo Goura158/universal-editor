@@ -23,9 +23,9 @@ export async function updateContentFragment(cfPath, updatedData) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const responseData = await response.json();
-    console.log("Content fragment updated:", responseData);
+    console.log('Content fragment updated:', responseData);
   } catch (error) {
-    console.error("Error updating content fragment:", error);
+    console.error('Error updating content fragment:', error);
   }
 }
 
@@ -35,7 +35,10 @@ export async function updateContentFragment(cfPath, updatedData) {
  */
 export default async function decorate(block) {
   block.innerHTML = '';
-  const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';  
+  const link = block.querySelector('a');
+  const path = link ? link.getAttribute('href') : block.textContent.trim();
+  console.log('path ', path);
+  const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
@@ -54,6 +57,7 @@ export default async function decorate(block) {
     });
   console.log(cfReq);
   const fragment = await updateContentFragment(path, cfReq);
+  console.log('fragment path ', fragment);
   block.setAttribute('data-aue-type', 'container');
   block.innerHTML = `
   <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
