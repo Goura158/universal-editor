@@ -26,10 +26,10 @@ export default async function decorate(block) {
     .then((contentfragment) => {
       let offer = '';
       if (contentfragment.data) {
-        console.log('CF data ', contentfragment.data.textList);
-        offer = JSON.parse(contentfragment.data.textList);
-        const headline = offer.data.textList.items[0].title;
-        console.log('offer ', headline);
+        console.log('CF data ', contentfragment.data.textList.items[0].title);
+        // offer = JSON.parse(contentfragment.data.textList);
+        // const headline = offer.data.textList.items[0].title;
+        // console.log('offer ', headline);
       }
       return offer;
     });
