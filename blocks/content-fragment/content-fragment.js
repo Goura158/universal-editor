@@ -15,7 +15,7 @@ export async function updateContentFragment(cfPath, updatedData) {
     const response = await fetch(`${cfPath}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(updatedData),
     });
