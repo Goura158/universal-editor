@@ -18,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "content-fragment",
+      "id": "content-fragment-model",
       "fields": [
         {
           "component": "aem-content-fragment",
