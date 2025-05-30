@@ -27,7 +27,7 @@ export default async function decorate(block) {
       let offer = '';
       if (contentfragment.data) {
         console.log('CF data ', contentfragment.data.textList.items[0]);
-        offer = contentfragment.data.textList.items[0];
+        offer = contentfragment.data.textList.items[0].title;
         // const headline = offer.data.textList.items[0].title;
         // console.log('offer ', headline);
       }
