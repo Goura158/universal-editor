@@ -26,7 +26,7 @@ export default async function decorate(block) {
     .then((contentfragment) => {
       let offer = '';
       if (contentfragment.data) {
-        console.log('CF data ', contentfragment.data);
+        console.log('CF data ', response.json());
         offer = JSON.parse(contentfragment.data);
         const headline = offer.data.textList.items[0].title;
         console.log('offer ', headline);
