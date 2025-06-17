@@ -42,7 +42,7 @@ export default async function decorate(block) {
   console.log('cf path ', path);
   const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
-  const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
+  const persistedquery = '/content/dam/universal-editor-standard-site/cf/headline';
   const graphqlpath = `${aemauthorurl}${persistedquery}`;
   console.log(graphqlpath);
   const cfReq = await fetch(graphqlpath)
