@@ -34,7 +34,7 @@ export async function updateContentFragment(cfPath, updatedData) {
  * @param {Element} block
  */
 export default async function decorate(block) {
-  //console.log('block ', block);
+  // console.log('block ', block);
   block.innerHTML = '';
   const link = block.querySelector('a');
   console.log('link ', link);
