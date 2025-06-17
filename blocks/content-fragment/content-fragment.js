@@ -34,10 +34,10 @@ export async function updateContentFragment(cfPath, updatedData) {
  * @param {Element} block
  */
 export default async function decorate(block) {
+  console.log('block ', block);
   block.innerHTML = '';
   const link = block.querySelector('a');
-  const path = link ? link.getAttribute('href') : block.textContent.trim();
-  console.log('block ', path);
+  const path = link ? link.getAttribute('href') : block.textContent.trim();  
   const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
