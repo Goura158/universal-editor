@@ -55,7 +55,8 @@ export default async function decorate(block) {
       }
       return offer;
     });
-  console.log(cfReq);
+  console.log('cfReq ', cfReq);
+  console.log('path ', path);
   const fragment = await updateContentFragment(path, cfReq);
   console.log('fragment path ', fragment);
   block.setAttribute('data-aue-type', 'container');
