@@ -37,7 +37,7 @@ export default async function decorate(block) {
   block.innerHTML = '';
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
-  console.log('path ', path);
+  console.log('block ', path);
   const aemauthorurl = 'https://author-p14733-e1160558.adobeaemcloud.com';
   console.log('author url ', aemauthorurl);
   const persistedquery = '/graphql/execute.json/universal-editor-standard-site/text';
