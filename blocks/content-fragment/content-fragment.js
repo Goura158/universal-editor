@@ -36,7 +36,7 @@ export async function updateContentFragment(cfPath, updatedData) {
 export default async function decorate(block) {
   console.log('block ', block);
   block.innerHTML = '';
-  const link = block.querySelector('a');
+  const link = block.querySelector('picker');
   console.log('link ', link);
   const path = link ? link.getAttribute('href') : block.textContent.trim();
   console.log('cf path ', path);
