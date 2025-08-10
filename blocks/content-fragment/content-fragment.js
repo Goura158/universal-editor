@@ -19,7 +19,8 @@ async function getContentFragmentWithEtag(fragmentPath) {
     headers: { Accept: 'application/json' },
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
-  console.log('resp.json ', resp.json);
+  const result = await resp.json();
+  console.log('result ', result);
   const etag = resp.header.get('etag') || resp.header.get('ETAG');
   return etag;
 }
