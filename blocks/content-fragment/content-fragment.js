@@ -68,7 +68,7 @@ export default async function decorate(block) {
   try {
     const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
-    const uuid = cfData.data["textByPath"].item._id;
+    const uuid = cfData.data.textByPath.item._id;
     console.log('uuid of content fragment ', uuid);
     const textVal = cfData.elements?.text?.value || '';
 
