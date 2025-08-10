@@ -68,7 +68,7 @@ export default async function decorate(block) {
   try {
     const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
-    const title = cfData.data.textByPath.item.title;
+    const { data: { textByPath: { item: { title } } } } = cfData;
     console.log('title of content fragment ', title);
     const textVal = cfData.elements?.text?.value || '';
 
