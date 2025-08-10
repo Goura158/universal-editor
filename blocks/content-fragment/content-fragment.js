@@ -14,7 +14,7 @@ async function getContentFragment(fragmentPath) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
     credentials: 'include',
-    headers: { Accept: 'application/json' }
+    headers: { Accept: 'application/json' },
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
   return resp.json();
