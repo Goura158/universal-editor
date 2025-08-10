@@ -55,22 +55,6 @@ async function getContentFragment(fragmentPath) {
   return resp.json();
 }
 */
-async function updateContentFragment(fragmentPath, textValue) {
-  const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
-  const resp = await fetch(url, {
-    method: 'PATCH',
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      elements: {
-        text: { value: textValue },
-      },
-    }),
-  });
-  if (!resp.ok) throw new Error(`Failed to update CF: ${resp.status}`);
-  return resp.json();
-}
-
 export default async function decorate(block) {
   console.log('block ', block);
   // const { fragmentPath } = block.dataset;
