@@ -34,9 +34,9 @@ async function fetchCFETag(uuid) {
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
   const result = await resp.json();
-  console.log('result ', result);
-  const etag = resp.header.get('etag') || resp.header.get('ETAG');
-  console.log('etag ', etag);
+  console.log('result1 ', result);
+  const etag = resp.header.get('Etag') || resp.header.get('ETAG');
+  console.log('etag1 ', etag);
   return etag;
 }
 /*
