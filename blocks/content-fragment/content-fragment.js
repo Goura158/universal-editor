@@ -71,7 +71,7 @@ export default async function decorate(block) {
     const { data: { textByPath: { item: { _id } } } } = cfData;
     console.log('ID of content fragment ', _id);
     const textVal = cfData.elements?.text?.value || '';
-
+    console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
     block.innerHTML = `
       <div class="cf-text-block" data-aue-resource="${fragmentPath}" data-aue-type="content-fragment">
