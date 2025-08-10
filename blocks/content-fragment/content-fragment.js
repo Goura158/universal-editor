@@ -95,9 +95,9 @@ async function updateContentFragment(fragmentPath, textValue) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       elements: {
-        text: { value: textValue }
-      }
-    })
+        text: { value: textValue },
+      },
+    }),
   });
   if (!resp.ok) throw new Error(`Failed to update CF: ${resp.status}`);
   return resp.json();
