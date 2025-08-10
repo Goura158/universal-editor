@@ -99,29 +99,7 @@ export default async function decorate(block) {
     block.innerHTML = `
     <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
       <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='pretitle'>${title}</p>
-    </div>`;
-
-    // Auto-save observer with debounce
-    let debounceTimer;
-    const saveChanges = () => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(async () => {
-        const newText = block.querySelector('.editable-text').innerText.trim();
-        try {
-          await updateContentFragment(fragmentPath, newText);
-          console.log('✅ Auto-saved text update');
-        } catch (err) {
-          console.error('❌ Auto-save failed', err);
-        }
-      }, 500); // 500ms debounce
-    };
-
-    const observer = new MutationObserver(saveChanges);
-    observer.observe(block.querySelector('.editable-text'), {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
+    </div>`;    
   } catch (err) {
     block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
   }
