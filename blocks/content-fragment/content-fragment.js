@@ -38,8 +38,8 @@ async function updateContentFragment(fragmentPath, textValue) {
 }
 
 export default async function decorate(block) {
-  const { fragmentPath } = block.dataset;
-  console.log('fragmentPath ', fragmentPath);
+  console.log('block ', block);
+  const { fragmentPath } = block.dataset;  
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
