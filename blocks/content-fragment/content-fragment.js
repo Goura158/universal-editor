@@ -21,8 +21,8 @@ async function getContentFragmentWithEtag(fragmentPath) {
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
   const result = await resp.json();
   console.log('result ', result);
-  const etag = resp.header.get('etag') || resp.header.get('ETAG');
-  return etag;
+  // const etag = resp.header.get('etag') || resp.header.get('ETAG');
+  return result;
 }
 /*
 async function getContentFragment(fragmentPath) {
@@ -67,8 +67,9 @@ export default async function decorate(block) {
   }
   try {
     const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
-    const uuid = cfData._id;
-    console.log('uuid of content fragment ', uuid);
+    console.log('cfData of content fragment ', cfData);
+    // const uuid = cfData._id;
+    // console.log('uuid of content fragment ', uuid);
     const textVal = cfData.elements?.text?.value || '';
 
     // Render inline editable text area bound to CF
