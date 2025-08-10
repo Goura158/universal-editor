@@ -40,8 +40,10 @@ async function updateContentFragment(fragmentPath, textValue) {
 export default async function decorate(block) {
   console.log('block ', block);
   // const { fragmentPath } = block.dataset;
-  const fragmentPath = block.getAttribute('data-aue-resource');
-  console.log('fragmentPath ', fragmentPath);
+  const link = block.querySelector('a');
+  console.log('link in content fragment ', link);
+  const path = link ? link.getAttribute('href') : block.textContent.trim();
+  console.log('path in content fragment ', path);
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
