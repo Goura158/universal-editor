@@ -9,12 +9,12 @@
 * decorateMain,
 * } from '../../scripts/scripts.js';
 */
-const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
-const GRAPHQL_BASE = '/graphql/execute.json';
+// const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
+const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json';
 async function getContentFragmentWithEtag(fragmentPath) {
-  const CFGraphqlUrl = `${AEM_HOST+GRAPHQL_BASE}/adobe/sites/cf${fragmentPath}`;
+  const CFGraphqlUrl = `${GRAPHQL_BASE}/adobe/sites/cf${fragmentPath}`;
   console.log(' CFGraphqlUrl ', CFGraphqlUrl);
-  const resp = await fetch(url, {
+  const resp = await fetch(CFGraphqlUrl, {
     credentials: 'include',
     headers: { Accept: 'application/json' },
   });
