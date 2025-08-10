@@ -10,6 +10,19 @@
 * } from '../../scripts/scripts.js';
 */
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
+const GRAPHQL_BASE = '/graphql/execute.json';
+async function getContentFragmentWithEtag(fragmentPath) {
+  const CFGraphqlUrl = `${AEM_HOST}/{GRAPHQL_BASE}adobe/sites/cf${fragmentPath}`;
+  console.log(' CFGraphqlUrl ',  CFGraphqlUrl);
+  const resp = await fetch(url, {
+    credentials: 'include',
+    headers: { Accept: 'application/json' },
+  });
+  if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
+  console.log('resp.json ', resp.json);
+  const etag = resp.header.get('etag') || resp.header.get('ETAG');
+  return resp.json();
+}
 async function getContentFragment(fragmentPath) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   console.log('url ', url);
@@ -49,7 +62,7 @@ export default async function decorate(block) {
     return;
   }
   try {
-    const cfData = await getContentFragment(fragmentPath);
+    const cfData = await getContentFragmentWithEtag(fragmentPath);
     const textVal = cfData.elements?.text?.value || '';
 
     // Render inline editable text area bound to CF
