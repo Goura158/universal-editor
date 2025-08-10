@@ -12,8 +12,8 @@
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 const GRAPHQL_BASE = '/graphql/execute.json';
 async function getContentFragmentWithEtag(fragmentPath) {
-  const CFGraphqlUrl = `${AEM_HOST}/{GRAPHQL_BASE}adobe/sites/cf${fragmentPath}`;
-  console.log(' CFGraphqlUrl ',  CFGraphqlUrl);
+  const CFGraphqlUrl = `${AEM_HOST+GRAPHQL_BASE}/adobe/sites/cf${fragmentPath}`;
+  console.log(' CFGraphqlUrl ', CFGraphqlUrl);
   const resp = await fetch(url, {
     credentials: 'include',
     headers: { Accept: 'application/json' },
@@ -21,9 +21,9 @@ async function getContentFragmentWithEtag(fragmentPath) {
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
   console.log('resp.json ', resp.json);
   const etag = resp.header.get('etag') || resp.header.get('ETAG');
-  return resp.json();
+  return etag;
 }
-async function getContentFragment(fragmentPath) {
+/*async function getContentFragment(fragmentPath) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   console.log('url ', url);
   const resp = await fetch(url, {
@@ -33,7 +33,7 @@ async function getContentFragment(fragmentPath) {
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
   console.log('resp.json ', resp.json);
   return resp.json();
-}
+}*/
 async function updateContentFragment(fragmentPath, textValue) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
