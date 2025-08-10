@@ -11,7 +11,7 @@
 */
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text%3Bpath=';
-async function getContentFragmentWithEtag(fragmentPath) {
+async function getContentFragmentData(fragmentPath) {
   const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
   console.log(' CFGraphqlUrl ', CFGraphqlUrl);
   const resp = await fetch(CFGraphqlUrl, {
@@ -23,6 +23,20 @@ async function getContentFragmentWithEtag(fragmentPath) {
   console.log('result ', result);
   // const etag = resp.header.get('etag') || resp.header.get('ETAG');
   return result;
+}
+async function fetchCFETag(uuid) {
+  // const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
+  const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
+  console.log(' CFUuidurl ', CFUuidurl);
+  const resp = await fetch(CFUuidurl, {
+    credentials: 'include',
+    headers: { Accept: 'application/json' },
+  });
+  if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
+  const result = await resp.json();
+  console.log('result ', result);
+  const etag = resp.header.get('etag') || resp.header.get('ETAG');
+  return etag;
 }
 /*
 async function getContentFragment(fragmentPath) {
@@ -66,10 +80,12 @@ export default async function decorate(block) {
     return;
   }
   try {
-    const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
+    const cfData = await getContentFragmentData(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
     const { data: { textByPath: { item: { _id } } } } = cfData;
     console.log('ID of content fragment ', _id);
+    const cfetag = await fetchCFETag(_id);
+    console.log('cfetag of content fragment ', cfetag);
     const textVal = cfData.elements?.text?.value || '';
     console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
