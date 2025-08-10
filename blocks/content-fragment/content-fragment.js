@@ -39,11 +39,11 @@ async function updateContentFragment(fragmentPath, textValue) {
 
 export default async function decorate(block) {
   const { fragmentPath } = block.dataset;
+  console.log('fragmentPath ', fragmentPath);
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
   }
-
   try {
     const cfData = await getContentFragment(fragmentPath);
     const textVal = cfData.elements?.text?.value || '';
