@@ -75,8 +75,7 @@ export default async function decorate(block) {
 }
  */
  
-const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com'; 
-
+const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 async function getContentFragment(fragmentPath) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
@@ -84,9 +83,8 @@ async function getContentFragment(fragmentPath) {
     headers: { Accept: 'application/json' }
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
-  return await resp.json();
+  return resp.json();
 }
-
 async function updateContentFragment(fragmentPath, textValue) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
