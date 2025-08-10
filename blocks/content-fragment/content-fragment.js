@@ -12,11 +12,13 @@
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 async function getContentFragment(fragmentPath) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
+  console.log('url ',url); 
   const resp = await fetch(url, {
     credentials: 'include',
     headers: { Accept: 'application/json' },
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
+  console.log('resp.json ', resp.json)
   return resp.json();
 }
 async function updateContentFragment(fragmentPath, textValue) {
