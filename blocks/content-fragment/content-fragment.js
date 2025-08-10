@@ -10,7 +10,7 @@
 * } from '../../scripts/scripts.js';
 */
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
-const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json';
+const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text%3Bpath=';
 async function getContentFragmentWithEtag(fragmentPath) {
   const CFGraphqlUrl = `${GRAPHQL_BASE}/adobe/sites/cf${fragmentPath}`;
   console.log(' CFGraphqlUrl ', CFGraphqlUrl);
@@ -58,6 +58,7 @@ export default async function decorate(block) {
   const link = block.querySelector('a');
   console.log('link in content fragment ', link);
   const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
+  fragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, "");
   console.log('path in content fragment ', fragmentPath);
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
