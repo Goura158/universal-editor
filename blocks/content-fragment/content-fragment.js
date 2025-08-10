@@ -68,8 +68,8 @@ export default async function decorate(block) {
   try {
     const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
-    const uuid = cfData.data.textByPath.item._id;
-    console.log('uuid of content fragment ', uuid);
+    const title = cfData.data.textByPath.item.title;
+    console.log('title of content fragment ', title);
     const textVal = cfData.elements?.text?.value || '';
 
     // Render inline editable text area bound to CF
