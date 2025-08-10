@@ -58,14 +58,14 @@ export default async function decorate(block) {
   const link = block.querySelector('a');
   console.log('link in content fragment ', link);
   const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
-  fragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, "");
-  console.log('path in content fragment ', fragmentPath);
+  const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
+  console.log('path in content fragment ', cleanedFragmentPath);
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
   }
   try {
-    const cfData = await getContentFragmentWithEtag(fragmentPath);
+    const cfData = await getContentFragmentWithEtag(cleanedFragmentPath);
     const textVal = cfData.elements?.text?.value || '';
 
     // Render inline editable text area bound to CF
