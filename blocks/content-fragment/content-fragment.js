@@ -95,17 +95,11 @@ export default async function decorate(block) {
     // const textVal = cfData.elements?.text?.value || '';
     // console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
+    block.setAttribute('data-aue-type', 'container');
     block.innerHTML = `
-      <div class="cf-text-block" data-aue-resource="${cleanedFragmentPath}" data-aue-type="content-fragment">
-        <div 
-          class="editable-text" 
-          data-aue-prop="elements.text.value" 
-          data-aue-label="Text"
-          data-aue-type="text">
-          HI
-        </div>
-      </div>
-    `;
+    <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
+      <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='pretitle'>${title}</p>
+    </div>`;
 
     // Auto-save observer with debounce
     let debounceTimer;
@@ -129,6 +123,6 @@ export default async function decorate(block) {
       characterData: true,
     });
   } catch (err) {
-    block.innerHTML = `<p class="error">Error: ${err}</p>`;
+    block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
   }
 }
