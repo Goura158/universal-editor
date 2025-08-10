@@ -100,7 +100,7 @@ async function updateContentFragment(fragmentPath, textValue) {
     })
   });
   if (!resp.ok) throw new Error(`Failed to update CF: ${resp.status}`);
-  return await resp.json();
+  return resp.json();
 }
 
 export default async function decorate(block) {
@@ -146,9 +146,8 @@ export default async function decorate(block) {
     observer.observe(block.querySelector('.editable-text'), {
       childList: true,
       subtree: true,
-      characterData: true
+      characterData: true,
     });
-
   } catch (err) {
     block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
   }
