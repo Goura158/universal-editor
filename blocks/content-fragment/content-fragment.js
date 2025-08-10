@@ -129,6 +129,6 @@ export default async function decorate(block) {
       characterData: true,
     });
   } catch (err) {
-    block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
+    block.innerHTML = `<p class="error">Error: ${err}</p>`;
   }
 }
