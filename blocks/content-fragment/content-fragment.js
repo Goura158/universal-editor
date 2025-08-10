@@ -96,7 +96,7 @@ export default async function decorate(block) {
     // console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
     block.innerHTML = `
-      <div class="cf-text-block" data-aue-resource="${fragmentPath}" data-aue-type="content-fragment">
+      <div class="cf-text-block" data-aue-resource="${cleanedFragmentPath}" data-aue-type="content-fragment">
         <div 
           class="editable-text" 
           data-aue-prop="elements.text.value" 
