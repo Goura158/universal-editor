@@ -92,8 +92,8 @@ export default async function decorate(block) {
     console.log('title of content fragment ', title);
     const cfetag = await fetchCFETag(_id);
     console.log('cfetag of content fragment ', cfetag);
-    const textVal = cfData.elements?.text?.value || '';
-    console.log('textVal of content fragment ', textVal);
+    // const textVal = cfData.elements?.text?.value || '';
+    // console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
     block.innerHTML = `
       <div class="cf-text-block" data-aue-resource="${fragmentPath}" data-aue-type="content-fragment">
@@ -102,7 +102,7 @@ export default async function decorate(block) {
           data-aue-prop="elements.text.value" 
           data-aue-label="Text"
           data-aue-type="text">
-          ${textVal}
+          ${title}
         </div>
       </div>
     `;
