@@ -88,6 +88,8 @@ export default async function decorate(block) {
     console.log('cfData of content fragment ', cfData);
     const { data: { textByPath: { item: { _id } } } } = cfData;
     console.log('ID of content fragment ', _id);
+    const { data: { textByPath: { item: { title } } } } = cfData;
+    console.log('title of content fragment ', title);
     const cfetag = await fetchCFETag(_id);
     console.log('cfetag of content fragment ', cfetag);
     const textVal = cfData.elements?.text?.value || '';
