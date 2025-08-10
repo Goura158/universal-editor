@@ -22,8 +22,8 @@
       "fields": [
         {
           "component": "aem-content",
-          "name": "reference",
-          "label": "Reference"
+          "name": "reference1",
+          "label": "Reference1"
         }
       ]
     }
