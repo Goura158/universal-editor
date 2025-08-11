@@ -26,7 +26,7 @@ async function getContentFragmentData(fragmentPath) {
   return result;
 }
 async function fetchCFETag(uuid) {
-  const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;  
+  const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
   console.log(' CFUuidurl ', CFUuidurl);
   const resp = await fetch(CFUuidurl, {
     credentials: 'include',
@@ -87,11 +87,11 @@ export default async function decorate(block) {
     const cfData = await getContentFragmentData(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
     // const { data: { textByPath: { item: { _id } } } } = cfData;
-    const _id = '10b447a0-09d5-43be-b898-3feaab535d76';
-    console.log('ID of content fragment ', _id);
+    const id = '10b447a0-09d5-43be-b898-3feaab535d76';
+    console.log('ID of content fragment ', id);
     const { data: { textByPath: { item: { title } } } } = cfData;
     console.log('title of content fragment ', title);
-    const cfetag = await fetchCFETag(_id);
+    const cfetag = await fetchCFETag(id);
     console.log('cfetag of content fragment ', cfetag);
     // const textVal = cfData.elements?.text?.value || '';
     // console.log('textVal of content fragment ', textVal);
