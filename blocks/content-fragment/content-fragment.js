@@ -38,7 +38,7 @@ async function fetchCFETag(uuid) {
   // const data = await resp.json();
   // const etag = result['repo:Etag'];
   // const etag = result.headers.get('Etag');
-  const etag = result.getResponseHeader('Etag');
+  const etag = resp.getResponseHeader('Etag');
   console.log('etag1 ', etag);
   return etag;
 }
