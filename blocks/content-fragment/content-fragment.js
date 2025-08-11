@@ -26,9 +26,9 @@ async function getContentFragmentData(fragmentPath) {
   return result;
 }
 async function fetchCFETag(uuid) {
-  // const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
-  console.log(' CFUuidurl ', CFUuidurl);
+  // const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;  
   const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/10b447a0-09d5-43be-b898-3feaab535d76`;
+  console.log(' CFUuidurl ', CFUuidurl);
   const resp = await fetch(CFUuidurl, {
     credentials: 'include',
     headers: { Accept: 'application/json' },
