@@ -33,18 +33,13 @@ async function fetchCFETag(uuid) {
     headers: { Accept: 'application/json' },
   });
   if (!resp.ok) throw new Error(`Failed to fetch CF: ${resp.status}`);
+  const etag = resp.headers.get('Etag');
+  console.log('etag ', etag);
   const result = await resp.json();
   console.log('result1 ', result);
   // const data = await resp.json();
-  // const etag = result['repo:Etag'];
-  if (result && result.headers) {
-    const etag = response.headers.get('Etag');    
-  } else {
-      console.error("Response or headers are undefined.");
-  }
-  // const etag = result.headers.get('Etag');
-  // const etag = resp.getResponseHeader('Etag');
-  console.log('etag ', etag);
+  // const etag = result['repo:Etag'];  
+  // const etag = resp.getResponseHeader('Etag');  
   return etag;
 }
 /*
