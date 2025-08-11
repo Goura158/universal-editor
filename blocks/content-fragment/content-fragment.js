@@ -95,10 +95,18 @@ export default async function decorate(block) {
     // console.log('textVal of content fragment ', textVal);
     // Render inline editable text area bound to CF
     block.setAttribute('data-aue-type', 'container');
+    // Render inline editable text area bound to CF
     block.innerHTML = `
-    <div class='banner-content block' data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
-      <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='pretitle'>${title}</p>
-    </div>`;
+      <div class="cf-text-block" data-aue-resource="${fragmentPath}" data-aue-type="content-fragment">
+        <div 
+          class="editable-text" 
+          data-aue-prop="elements.text.value" 
+          data-aue-label="Text"
+          data-aue-type="text">
+          ${textVal}
+        </div>
+      </div>
+    `;
     // Auto-save observer with debounce
     let debounceTimer;
     const saveChanges = () => {
