@@ -12,8 +12,8 @@
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text%3Bpath=';
 async function getContentFragmentData(fragmentPath) {
-  // const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
-  const CFGraphqlUrl = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
+  const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
+  // const CFGraphqlUrl = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
   console.log(' CFGraphqlUrl ', CFGraphqlUrl);
   const resp = await fetch(CFGraphqlUrl, {
     credentials: 'include',
@@ -26,8 +26,7 @@ async function getContentFragmentData(fragmentPath) {
   return result;
 }
 async function fetchCFETag(uuid) {
-  // const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;  
-  const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/10b447a0-09d5-43be-b898-3feaab535d76`;
+  const CFUuidurl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;  
   console.log(' CFUuidurl ', CFUuidurl);
   const resp = await fetch(CFUuidurl, {
     credentials: 'include',
@@ -77,7 +76,8 @@ export default async function decorate(block) {
   const link = block.querySelector('a');
   console.log('link in content fragment ', link);
   const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
-  const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
+  // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
+  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/headline';
   console.log('path in content fragment ', cleanedFragmentPath);
   if (!fragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
@@ -86,7 +86,8 @@ export default async function decorate(block) {
   try {
     const cfData = await getContentFragmentData(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
-    const { data: { textByPath: { item: { _id } } } } = cfData;
+    // const { data: { textByPath: { item: { _id } } } } = cfData;
+    const _id = '10b447a0-09d5-43be-b898-3feaab535d76';
     console.log('ID of content fragment ', _id);
     const { data: { textByPath: { item: { title } } } } = cfData;
     console.log('title of content fragment ', title);
