@@ -103,7 +103,7 @@ export default async function decorate(block) {
           data-aue-prop="elements.text.value" 
           data-aue-label="Text"
           data-aue-type="text">
-          ${textVal}
+          ${title}
         </div>
       </div>
     `;
