@@ -75,7 +75,7 @@ export default async function decorate(block) {
   // const { fragmentPath } = block.dataset;
   const link = block.querySelector('a');
   console.log('link in content fragment ', link);
-  const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
+  // const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
   // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
   const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/headline';
   console.log('path in content fragment ', cleanedFragmentPath);
