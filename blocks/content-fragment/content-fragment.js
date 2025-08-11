@@ -99,7 +99,7 @@ export default async function decorate(block) {
     block.setAttribute('data-aue-type', 'container');
     // Render inline editable text area bound to CF
     block.innerHTML = `
-      <div class="cf-text-block" data-aue-resource="${fragmentPath}" data-aue-type="content-fragment">
+      <div class="cf-text-block" data-aue-resource="${cleanedFragmentPath}" data-aue-type="content-fragment">
         <div 
           class="editable-text" 
           data-aue-prop="elements.text.value" 
@@ -115,8 +115,9 @@ export default async function decorate(block) {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(async () => {
         const newText = block.querySelector('.editable-text').innerText.trim();
+        console.log('newText of content fragment ', newText);
         try {
-          await updateContentFragment(fragmentPath, newText);
+          await updateContentFragment(cleanedFragmentPath, newText);
           console.log('✅ Auto-saved text update');
         } catch (err) {
           console.error('❌ Auto-save failed', err);
