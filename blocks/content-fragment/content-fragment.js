@@ -37,7 +37,12 @@ async function fetchCFETag(uuid) {
   console.log('result1 ', result);
   // const data = await resp.json();
   // const etag = result['repo:Etag'];
-  const etag = result.headers.get('Etag');
+  if (result && result.headers) {
+    const etag = response.headers.get('Etag');    
+  } else {
+      console.error("Response or headers are undefined.");
+  }
+  // const etag = result.headers.get('Etag');
   // const etag = resp.getResponseHeader('Etag');
   console.log('etag ', etag);
   return etag;
