@@ -79,7 +79,7 @@ export default async function decorate(block) {
   // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
   const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/headline';
   console.log('path in content fragment ', cleanedFragmentPath);
-  if (!fragmentPath) {
+  if (!cleanedFragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
   }
