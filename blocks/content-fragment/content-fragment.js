@@ -80,6 +80,7 @@ async function updateCF(uuid, etag, updatedElements) {
   const updatedMeta = await resp.json();
   return updatedMeta['repo:etag']; // Return new ETag for subsequent updates
 }
+/*
 async function updateContentFragment(fragmentPath, textValue) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
@@ -95,6 +96,7 @@ async function updateContentFragment(fragmentPath, textValue) {
   if (!resp.ok) throw new Error(`Failed to update CF: ${resp.status}`);
   return resp.json();
 }
+*/
 export default async function decorate(block) {
   console.log('block ', block);
 
@@ -159,7 +161,7 @@ export default async function decorate(block) {
         obj.fields[0].values = newText;
         console.log('new obj ', obj);
         try {
-          await updateContentFragment(cleanedFragmentPath, newText);
+          // await updateContentFragment(cleanedFragmentPath, newText);
           await updateCF(id, cfetag, obj);
           console.log('Auto-saved text update');
         } catch (err) {
