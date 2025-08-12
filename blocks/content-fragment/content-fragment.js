@@ -55,6 +55,31 @@ async function getContentFragment(fragmentPath) {
   return resp.json();
 }
 */
+/**
+ * Update CF attributes using UUID + ETag via Assets API
+ */
+async function updateCF(uuid, etag, updatedElements) {
+  const updateUrl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
+  console.log('updateUrl ', updateUrl);
+  const payload = { elements: updatedElements };
+  console.log('payload ', payload);
+
+  const resp = await fetch(updateUrl, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'If-Match': etag
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!resp.ok) {
+    throw new Error(`Failed to update CF: ${resp.status}`);
+  }
+
+  const updatedMeta = await resp.json();
+  return updatedMeta['repo:etag']; // Return new ETag for subsequent updates
+}
 async function updateContentFragment(fragmentPath, textValue) {
   const url = `${AEM_HOST}/adobe/sites/cf${fragmentPath}`;
   const resp = await fetch(url, {
@@ -72,6 +97,21 @@ async function updateContentFragment(fragmentPath, textValue) {
 }
 export default async function decorate(block) {
   console.log('block ', block);
+
+  const obj = {
+		"title": "TRP Text",
+		"fields": [
+			{
+				"name": "title",
+				"type": "text",
+				"values": [
+					"Better questions. Better answers"
+				]
+			}
+		]
+	};
+  console.log('existing obj ', obj);
+  
   // const { fragmentPath } = block.dataset;
   const link = block.querySelector('a');
   console.log('link in content fragment ', link);
@@ -116,11 +156,15 @@ export default async function decorate(block) {
       debounceTimer = setTimeout(async () => {
         const newText = block.querySelector('.editable-text').innerText.trim();
         console.log('newText of content fragment ', newText);
+        // Replace values
+      	obj.fields[0].values = newText;
+        console.log('new obj ', obj);
         try {
-          await updateContentFragment(cleanedFragmentPath, newText);
-          console.log('✅ Auto-saved text update');
+          await updateContentFragment(id, cfetag, );
+          await updateCF(cleanedFragmentPath, newText);
+          console.log('Auto-saved text update');
         } catch (err) {
-          console.error('❌ Auto-save failed', err);
+          console.error('Auto-save failed', err);
         }
       }, 500); // 500ms debounce
     };
