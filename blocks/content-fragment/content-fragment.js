@@ -73,7 +73,7 @@ async function updateCF(uuid, etag, updatedElements) {
     },
     body: JSON.stringify(payload),
   });
-  console.log('resp for CF update ', resp.json);
+  console.log('resp for CF update ', resp);
 
   if (!resp.ok) {
     throw new Error(`Failed to update CF: ${resp.status}`);
