@@ -160,7 +160,7 @@ export default async function decorate(block) {
       	obj.fields[0].values = newText;
         console.log('new obj ', obj);
         try {
-          await updateContentFragment(id, cfetag, );
+          await updateContentFragment(id, cfetag, obj);
           await updateCF(cleanedFragmentPath, newText);
           console.log('Auto-saved text update');
         } catch (err) {
