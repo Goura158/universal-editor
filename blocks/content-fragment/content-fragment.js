@@ -120,7 +120,7 @@ export default async function decorate(block) {
   console.log('link in content fragment ', link);
   // const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
   // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
-  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/headline';
+  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/trp-text';
   console.log('path in content fragment ', cleanedFragmentPath);
   if (!cleanedFragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
@@ -129,9 +129,10 @@ export default async function decorate(block) {
   try {
     const cfData = await getContentFragmentData(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
-    // const { data: { textByPath: { item: { _id } } } } = cfData;
-    const id = '10b447a0-09d5-43be-b898-3feaab535d76';
-    console.log('ID of content fragment ', id);
+    const { data: { textByPath: { item: { _id } } } } = cfData;
+    // const id = '435ff07d-2f03-4f36-8f97-f9227aec2c73';
+    console.log('ID of content fragment ', _id);
+    const id = _id;
     const { data: { textByPath: { item: { title } } } } = cfData;
     console.log('title of content fragment ', title);
     const cfetag = await fetchCFETag(id);
