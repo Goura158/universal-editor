@@ -130,7 +130,7 @@ export default async function decorate(block) {
     const cfData = await getContentFragmentData(cleanedFragmentPath);
     console.log('cfData of content fragment ', cfData);
     // const { data: { textByPath: { item: { _id } } } } = cfData;
-    const id = '22557c9fb7589563194fea3d719971e5';
+    const id = '10b447a0-09d5-43be-b898-3feaab535d76';
     console.log('ID of content fragment ', id);
     const { data: { textByPath: { item: { title } } } } = cfData;
     console.log('title of content fragment ', title);
