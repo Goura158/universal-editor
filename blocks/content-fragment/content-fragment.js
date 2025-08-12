@@ -68,9 +68,9 @@ async function updateCF(uuid, etag, updatedElements) {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'If-Match': etag
+      'If-Match': etag,
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   });
 
   if (!resp.ok) {
@@ -99,17 +99,17 @@ export default async function decorate(block) {
   console.log('block ', block);
 
   const obj = {
-		"title": "TRP Text",
-		"fields": [
-			{
-				"name": "title",
-				"type": "text",
-				"values": [
-					"Better questions. Better answers"
-				]
-			}
-		]
-	};
+    'title': 'TRP Text',
+    'fields': [
+      {
+        'name': 'title',
+        'type': 'text',
+        'values': [
+          'Better questions. Better answers',
+        ]
+      }
+    ]
+  };
   console.log('existing obj ', obj);
   
   // const { fragmentPath } = block.dataset;
