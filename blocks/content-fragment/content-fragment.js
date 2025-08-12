@@ -155,10 +155,10 @@ export default async function decorate(block) {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(async () => {
         const newText = block.querySelector('.editable-text').innerText.trim();
-        console.log('newText of content fragment ', newText);
-        // Replace values
+				console.log('newText of content fragment ', newText);
+				// Replace values
 				obj.fields[0].values = newText;
-        console.log('new obj ', obj);
+				console.log('new obj ', obj);
         try {
           await updateContentFragment(id, cfetag, obj);
           await updateCF(cleanedFragmentPath, newText);
