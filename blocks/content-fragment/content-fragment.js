@@ -104,7 +104,7 @@ export default async function decorate(block) {
 
   const obj = {
     elements: {
-      title: { value: "Better questions. Better insights. In all markets5" },
+      title: { value: 'Better questions. Better insights. In all markets5' },
     },
   };
 
