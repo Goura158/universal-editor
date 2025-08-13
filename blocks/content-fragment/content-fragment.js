@@ -12,8 +12,8 @@
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
 async function getContentFragmentData(fragmentPath) {
-  const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
-  // const CFGraphqlUrl = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
+  // const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
+  const CFGraphqlUrl = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
   console.log(' CFGraphqlUrl ', CFGraphqlUrl);
   const resp = await fetch(CFGraphqlUrl, {
     credentials: 'include',
