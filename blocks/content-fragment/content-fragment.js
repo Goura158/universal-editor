@@ -83,7 +83,8 @@ async function updateCF(uuid, etag, updatedElements) {
   }
 
   const updatedMeta = await resp.json();
-  return updatedMeta['repo:etag']; // Return new ETag for subsequent updates
+  // return updatedMeta['repo:etag']; // Return new ETag for subsequent updates
+  return updatedMeta;
 }
 /*
 async function updateContentFragment(fragmentPath, textValue) {
