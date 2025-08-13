@@ -76,7 +76,7 @@ async function updateCF(uuid, etag, updatedElements) {
     },
     body: JSON.stringify(payload),
   });
-  console.log('resp for CF update ', resp);
+  console.log('resp for CF update ', resp.json);
 
   if (!resp.ok) {
     throw new Error(`Failed to update CF: ${resp.status}`);
@@ -106,12 +106,12 @@ export default async function decorate(block) {
   console.log('block ', block);
 
   const obj = {
-    "title": "TRP Text",
-    "fields": [
+    title: "TRP Text",
+    fields: [
       {
-        "name": "title",
-        "type": "text",
-        "values": [
+        name: "title",
+        type: "text",
+        values: [
           "Better questions. Better answers",
         ],
       },
