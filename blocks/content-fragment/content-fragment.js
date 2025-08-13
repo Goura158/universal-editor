@@ -103,17 +103,11 @@ export default async function decorate(block) {
   console.log('block ', block);
 
   const obj = {
-    title: 'TRP Text',
-    fields: [
-      {
-        name: 'title',
-        type: 'text',
-        values: [
-          'Better questions. Better answers',
-        ],
-      },
-    ],
+    elements: {
+      title: { value: "Better questions. Better insights. In all markets5" },
+    },
   };
+
   console.log('existing obj ', obj);
   // const { fragmentPath } = block.dataset;
   const link = block.querySelector('a');
