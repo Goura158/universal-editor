@@ -12,8 +12,8 @@
 const AEM_HOST = 'https://author-p14733-e1160558.adobeaemcloud.com';
 // const GRAPHQL_BASE = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
 async function getContentFragmentData(fragmentPath) {
-  const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
-  const CFGraphqlUrl_Base = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
+  // const CFGraphqlUrl = `${GRAPHQL_BASE}${fragmentPath}`;
+  const CFGraphqlUrl = 'https://author-p14733-e1160558.adobeaemcloud.com/graphql/execute.json/universal-editor-standard-site/text';
   console.log(' CFGraphqlUrl ', CFGraphqlUrl_Base);
   const resp = await fetch(CFGraphqlUrl_Base, {
     credentials: 'include',
@@ -121,7 +121,7 @@ export default async function decorate(block) {
     return;
   }
   try {
-    const cfData = await getContentFragmentData(cleanedFragmentPath);
+    const cfData = await getContentFragmentData();
     console.log('cfData of content fragment ', cfData);
     const { data: { textByPath: { item: { _id } } } } = cfData;
     // const id = '435ff07d-2f03-4f36-8f97-f9227aec2c73';
