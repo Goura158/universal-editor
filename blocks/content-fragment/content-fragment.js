@@ -74,7 +74,7 @@ async function updateCF(uuid, etag, updatedElements) {
         name: 'title',
         type: 'text',
         values: [
-          'Better questions. Better answers55',
+          'Better questions. Better answers77',
         ],
       },
     ],
