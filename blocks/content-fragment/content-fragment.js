@@ -64,8 +64,8 @@ async function updateCF(uuid, etag, updatedElements) {
   console.log('updatedElements ', updatedElements);
   const updateUrl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
   console.log('updateUrl ', updateUrl);
-  const payload = { elements: updatedElements };
-  console.log('payload ', payload);
+  // const payload = { elements: updatedElements };
+  console.log('payload ', updatedElements);
 
   const resp = await fetch(updateUrl, {
     method: 'PUT',
