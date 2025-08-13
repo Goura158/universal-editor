@@ -96,8 +96,9 @@ async function updateCF(uuid, etag, updatedElements) {
     throw new Error(`Failed to update CF: ${resp.status}`);
   }
 
-  const updatedMeta = await resp.json();
+  const output = await resp.json();
   // return updatedMeta['repo:etag']; // Return new ETag for subsequent updates
+  console.log('output ', updatedMeta);
   return updatedMeta;
 }
 /*
