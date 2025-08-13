@@ -155,7 +155,8 @@ export default async function decorate(block) {
         const newText = block.querySelector('.editable-text').innerText.trim();
         console.log('newText of content fragment ', newText);
         // Replace values
-        obj.fields[0].values = newText;
+        // obj.fields[0].values = newText;
+        obj.elements.title.value = newText;
         console.log('new obj ', obj);
         try {
           // await updateContentFragment(cleanedFragmentPath, newText);
