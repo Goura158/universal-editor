@@ -106,16 +106,16 @@ export default async function decorate(block) {
   console.log('block ', block);
 
   const obj = {
-  "title": "TRP Text",  
-  "fields": [
+  title: 'TRP Text',  
+  fields: [
     {
-      "name": "title",
-      "type": "text",
-      "values": [
-        "Better questions. Better insights. In all markets"
-      ]
-    }
-  ]
+      name: 'title',
+      type: 'text',
+      values: [
+        'Better questions. Better insights. In all markets,
+      ],
+    },
+    ],
   };
 
   console.log('existing obj ', obj);
