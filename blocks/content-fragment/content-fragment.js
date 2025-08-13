@@ -112,7 +112,7 @@ export default async function decorate(block) {
       name: 'title',
       type: 'text',
       values: [
-        'Better questions. Better insights. In all markets,
+        'Better questions. Better insights. In all markets',
       ],
     },
     ],
