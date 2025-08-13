@@ -59,6 +59,9 @@ async function getContentFragment(fragmentPath) {
  * Update CF attributes using UUID + ETag via Assets API
  */
 async function updateCF(uuid, etag, updatedElements) {
+  console.log('uuid ', uuid);
+  console.log('etag ', etag);
+  console.log('updatedElements ', updatedElements);
   const updateUrl = `${AEM_HOST}/adobe/sites/cf/fragments/${uuid}`;
   console.log('updateUrl ', updateUrl);
   const payload = { elements: updatedElements };
