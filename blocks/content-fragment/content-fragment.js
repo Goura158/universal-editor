@@ -67,6 +67,20 @@ async function updateCF(uuid, etag, updatedElements) {
   // const payload = { elements: updatedElements };
   // console.log('payload ', updatedElements);
 
+  const payload = {
+    title: 'TRP Text',
+    fields: [
+      {
+        name: 'title',
+        type: 'text',
+        values: [
+          'Better questions. Better answers55',
+        ],
+      },
+    ],
+  };
+
+  console.log('payload ', payload);
   const resp = await fetch(updateUrl, {
     method: 'PUT',
     headers: {
@@ -74,7 +88,7 @@ async function updateCF(uuid, etag, updatedElements) {
       Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3NTUwOTA4NjI2NTNfMTgyZDFhZmItMmM2Yy00YTUyLTkwNjktMTdiYTY4YTVmNzY2X3VlMSIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJleGNfYXBwIiwidXNlcl9pZCI6IjJGRjMyQTJFNjQzNUEyOTcwQTQ5NUZBRUAwZWZiMjlmMjY0MjRhZGZjNDk1Y2Q4LmUiLCJzdGF0ZSI6IntcInNlc3Npb25cIjpcImh0dHBzOi8vaW1zLW5hMS5hZG9iZWxvZ2luLmNvbS9pbXMvc2Vzc2lvbi92MS9ZV1JoWVdJd1ptSXRNRGRtTnkwME1tSm1MVGhtTmpRdE1EQTBaVEUyTWpobU9UZzVMUzB5UmtZek1rRXlSVFkwTXpWQk1qazNNRUUwT1RWR1FVVkFNR1ZtWWpJNVpqSTJOREkwWVdSbVl6UTVOV05rT0M1bFwifSIsImFzIjoiaW1zLW5hMSIsImFhX2lkIjoiMUUwNjJDQjU2NDM1QTI5NzBBNDk1RkYxQHRyb3dlcHJpY2UuY29tIiwiY3RwIjowLCJmZyI6IlpXTEpVWUpPRkxQNU1IVUtGTVFWWUhBQTZRPT09PT09Iiwic2lkIjoiMTc1Mzg4MTE2MTQyMF9kMGQyMmRjZi02ZjM1LTQ5N2ItYWI3Mi1lN2I2OWYxMGJiYzJfdWUxIiwibW9pIjoiZjQwOTgwNTkiLCJwYmEiOiJPUkcsTWVkU2VjTm9FVixMb3dTZWMiLCJleHBpcmVzX2luIjoiODY0MDAwMDAiLCJjcmVhdGVkX2F0IjoiMTc1NTA5MDg2MjY1MyIsInNjb3BlIjoiYWIubWFuYWdlLGFjY291bnRfY2x1c3Rlci5yZWFkLGFkZGl0aW9uYWxfaW5mbyxhZGRpdGlvbmFsX2luZm8uam9iX2Z1bmN0aW9uLGFkZGl0aW9uYWxfaW5mby5wcm9qZWN0ZWRQcm9kdWN0Q29udGV4dCxhZGRpdGlvbmFsX2luZm8ucm9sZXMsQWRvYmVJRCxhZG9iZWlvLmFwcHJlZ2lzdHJ5LnJlYWQsYWRvYmVpb19hcGksYWVtLmZyb250ZW5kLmFsbCxhdWRpZW5jZW1hbmFnZXJfYXBpLGNyZWF0aXZlX2Nsb3VkLG1wcyxvcGVuaWQsb3JnLnJlYWQscHBzLnJlYWQscmVhZF9vcmdhbml6YXRpb25zLHJlYWRfcGMscmVhZF9wYy5hY3AscmVhZF9wYy5kbWFfdGFydGFuLHNlcnZpY2VfcHJpbmNpcGFscy53cml0ZSxzZXNzaW9uIn0.HpkW6rN6-ICRm5eR95yR11ULVz-n_4T_uzJWSL3ppk5USfhuCmN9vGP_cp_Q-rqMwRRRXOf5MEFt1TM84IGSSj6SXU4HLbYZEEylR8thPcS12C51I5zJwWCd7egBA45z6gWeWqdFkI6-XDakiJkU2351tJd8pEKfEY2XdpATZkLrE2SFu0_duFhQ3o7xpWSPegd7_gCicnGmxniv4OTNu8UnGVHXE2HQt7-ciO2OmmQWfiF-cNOLxvnMVmi-Fug_S2-15adgTE6h_JSZIMLjywvqbrwtUWt1UIo49ZWTWtm_xxjS3PuHJOsBp1IaCo62zVbmuVxhJSqhBkaHxXu6WQ',
       'If-Match': etag,
     },
-    body: JSON.stringify(updatedElements),
+    body: JSON.stringify(payload),
   });
   console.log('resp for CF update ', resp.json);
 
