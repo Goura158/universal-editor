@@ -125,7 +125,7 @@ export default async function decorate(block) {
   console.log('link in content fragment ', link);
   // const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
   // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
-  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/trp-text';
+  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/trp-text/jcr:content/data/master';
   console.log('path in content fragment ', cleanedFragmentPath);
   if (!cleanedFragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
@@ -157,34 +157,7 @@ export default async function decorate(block) {
           ${title}
         </div>
       </div>
-    `;
-    // Auto-save observer with debounce
-    let debounceTimer;
-    const saveChanges = () => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(async () => {
-        const newText = block.querySelector('.editable-text').innerText.trim();
-        console.log('newText of content fragment ', newText);
-        // Replace values
-        obj.fields[0].values[0] = newText;
-        // obj.elements.title.value = newText;
-        console.log('new obj ', obj);
-        try {
-          // await updateContentFragment(cleanedFragmentPath, newText);
-          await updateCF(id, cfetag, obj);
-          console.log('Auto-saved text update');
-        } catch (err) {
-          console.error('Auto-save failed', err);
-        }
-      }, 500); // 500ms debounce
-    };
-
-    const observer = new MutationObserver(saveChanges);
-    observer.observe(block.querySelector('.editable-text'), {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
+    `;    
   } catch (err) {
     block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
   }
