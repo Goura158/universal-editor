@@ -154,7 +154,7 @@ export default async function decorate(block) {
     block.setAttribute('data-aue-type', 'container');
     // Render inline editable text area bound to CF
     block.innerHTML = `
-      <div class="cf-text-block" data-aue-resource="${cleanedFragmentPath}" data-aue-type="content-fragment">
+      <div class="cf-text-block" data-aue-resource="${cleanedFragmentPath}" data-aue-type="reference" data-aue-filter="cf">
         <div 
           class="editable-text" 
           data-aue-prop="elements.text.value" 
