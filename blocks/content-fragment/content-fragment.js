@@ -66,21 +66,7 @@ async function updateCF(uuid, etag, updatedElements) {
   console.log('updateUrl ', updateUrl);
   // const payload = { elements: updatedElements };
   // console.log('payload ', updatedElements);
-
-  const payload = {
-    title: 'TRP Text',
-    fields: [
-      {
-        name: 'title',
-        type: 'text',
-        values: [
-          'Better questions. Better answers77',
-        ],
-      },
-    ],
-  };
-
-  console.log('payload ', payload);
+  
   const resp = await fetch(updateUrl, {
     method: 'PUT',
     headers: {
