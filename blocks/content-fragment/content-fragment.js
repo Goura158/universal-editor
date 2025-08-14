@@ -131,9 +131,8 @@ export default async function decorate(block) {
   const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/trp-text/jcr:content/data/master';
   console.log('path in content fragment ', cleanedFragmentPath);
 
-  const FullCFPath = `urn:aemconnection:$cleanedFragmentPath`;
+  const FullCFPath = 'urn:aemconnection:$cleanedFragmentPath';
   console.log('FullCFPath in content fragment ', FullCFPath);
-  
   if (!cleanedFragmentPath) {
     block.innerHTML = '<p>Please select a content fragment in the editor.</p>';
     return;
