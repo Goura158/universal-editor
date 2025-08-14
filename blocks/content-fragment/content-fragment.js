@@ -66,7 +66,6 @@ async function updateCF(uuid, etag, updatedElements) {
   console.log('updateUrl ', updateUrl);
   // const payload = { elements: updatedElements };
   // console.log('payload ', updatedElements);
-  
   const resp = await fetch(updateUrl, {
     method: 'PUT',
     headers: {
