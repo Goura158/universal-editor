@@ -157,7 +157,7 @@ export default async function decorate(block) {
           ${title}
         </div>
       </div>
-    `;    
+    `;
   } catch (err) {
     block.innerHTML = `<p class="error">Error: ${err.message}</p>`;
   }
