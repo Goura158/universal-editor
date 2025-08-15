@@ -128,7 +128,7 @@ export default async function decorate(block) {
   console.log('link in content fragment ', link);
   // const fragmentPath = link ? link.getAttribute('href') : block.textContent.trim();
   // const cleanedFragmentPath = fragmentPath.replace(/\.html$|\.htm$/i, '');
-  const cleanedFragmentPath = '/content/dam/universal-editor-standard-site/cf/trp-text/jcr:content/data/master';
+  const cleanedFragmentPath = 'https://author-p14733-e1160558.adobeaemcloud.com/content/dam/universal-editor-standard-site/cf/trp-text/jcr:content/data/master';
   console.log('path in content fragment ', cleanedFragmentPath);
 
   const FullCFPath = 'urn:aemconnection:$cleanedFragmentPath';
